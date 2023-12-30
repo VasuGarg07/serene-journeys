@@ -1,0 +1,33 @@
+.post-container {
+  background-color: #62B6CB;
+  box-sizing: border-box;
+  overflow: auto;
+
+  .heading {
+    font-size: 20px;
+  }
+
+  .post-section {
+    width: min(100%, 640px);
+    align-items: flex-start;
+
+    .input-section div {
+      background-color: #BEE9E8;
+    }
+
+    .tags {
+      margin-top: 8px;
+      gap: 8px;
+
+      span,
+      svg {
+        color: rgb(255 255 255 / 75%);
+      }
+    }
+
+    .icon-btn {
+      background-color: #BEE9E8;
+      color: #C1292E;
+    }
+  }
+}

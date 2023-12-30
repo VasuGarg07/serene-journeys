@@ -1,0 +1,28 @@
+.grid-container {
+  background: #4E598C;
+
+  span {
+    color: white;
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+
+    .image {
+      aspect-ratio: 4/3;
+      overflow: clip;
+      border-radius: 8px;
+
+      img {
+        transform: scale(1.7);
+        object-fit: contain;
+      }
+    }
+
+    .selected {
+      border: 4px solid #FF8C42;
+    }
+  }
+}

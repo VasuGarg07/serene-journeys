@@ -1,0 +1,113 @@
+.display-flex {
+  display: flex;
+}
+
+.flex-centered-container-vr {
+  @extend .display-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.flex-centered-container {
+  @extend .flex-centered-container-vr;
+  justify-content: center;
+}
+
+.flex-right {
+  @extend .flex-centered-container-vr;
+  justify-content: flex-end;
+}
+
+.flex-justified {
+  @extend .flex-centered-container-vr;
+  justify-content: space-between;
+}
+
+.flex-centered-column {
+  @extend .flex-centered-container-vr;
+  flex-direction: column;
+}
+
+.flex-stretch {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pad-8 {
+  padding: 8px;
+}
+
+.padding {
+  padding: 16px;
+}
+
+.margin-8-hr {
+  margin: 0 8px;
+}
+
+.margin-8-vr {
+  margin: 8px 0;
+}
+
+.margin-8 {
+  @extend .margin-8-hr;
+  @extend .margin-8-vr;
+}
+
+.margin-hr {
+  margin: 0 16px;
+}
+
+.margin-vr {
+  margin: 16px 0;
+}
+
+.margin {
+  @extend .margin-hr;
+  @extend .margin-vr;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.full-vp-width {
+  width: 100vw;
+}
+
+.full-vp-height {
+  height: 100vh;
+}
+
+.cursor-pointer:hover,
+.cursor-pointer:active {
+  cursor: pointer;
+}

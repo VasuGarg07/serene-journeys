@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Unna&display=swap');
+
+.login-container {
+  width: 100vw;
+  height: 100vh;
+
+  // background-image: url("https://static.vecteezy.com/system/resources/previews/008/854/831/large_2x/abstract-blur-gradient-background-with-trending-pastel-pink-purple-purple-red-orange-yellow-and-blue-colors-for-approval-concept-wallpaper-web-presentation-and-prints-illustration-free-photo.jpg");
+  background-image: url("/cool-background.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  flex-direction: column;
+  padding: 32px;
+
+  .login-card {
+    -webkit-backdrop-filter: blur(4px);
+
+    .brand {
+      gap: 4px;
+
+      .logo {
+        width: 40px;
+      }
+
+      .name {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: 'Unna', serif;
+      }
+    }
+
+    .login-form-header {
+
+      h2 {
+        margin: 0 0 4px;
+        font-size: 20px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 14px;
+        color: rgb(97, 86, 86);
+
+        span {
+          font-weight: bold;
+          color: rgb(145 0 255);
+          cursor: pointer;
+        }
+      }
+    }
+
+    .login-form {
+      padding: 0 16px;
+
+      .form-field {
+        text-align: left;
+
+        p {
+          margin: 8px;
+        }
+
+        .error-text {
+          text-transform: capitalize;
+        }
+      }
+
+      .form-submit-btn {
+        margin: 24px 0 8px;
+        border-radius: 8px;
+      }
+
+      .form-extra {
+        margin: 8px 0 0;
+        font-size: 14px;
+
+        input {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

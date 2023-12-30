@@ -1,0 +1,60 @@
+.blog-card {
+  .cover-image {
+    height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 12px 0 8px;
+  }
+
+  .tags {
+    gap: 8px;
+
+    .tag {
+      border-radius: 4px;
+      background-color: transparent;
+      margin: 1px;
+
+      span::first-letter {
+        color: #F6511D;
+      }
+
+      &:hover,
+      &:active {
+        background-color: rgba(#F6511D, 0.24);
+        border: 1px solid #F6511D;
+        margin: 0;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .blog-card {
+
+    .cover-image {
+      height: 240px;
+    }
+
+    .description {
+      -webkit-line-clamp: 2;
+    }
+  }
+}
+
+@media screen and (max-width:499px) {
+  .blog-card {
+
+    .cover-image {
+      height: 160px;
+    }
+  }
+}

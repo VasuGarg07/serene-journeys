@@ -1,0 +1,43 @@
+.profile-container {
+  box-sizing: border-box;
+  overflow: auto;
+  background-color: #E4FDE1;
+  justify-content: center;
+
+  .heading {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .profile-section {
+    width: min(100%, 640px);
+    align-items: flex-start;
+    gap: 8px !important;
+
+    .avatars {
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+
+      .avatar {
+        width: calc(25% - 16px);
+        min-width: 80px;
+        border-radius: 50%;
+        transition: all .3s ease-in-out;
+
+        &:hover,
+        &:active {
+          transform: rotate(360deg);
+        }
+      }
+
+      .selected {
+        border: 8px solid #0abcd3;
+      }
+    }
+
+    .submit-btn {
+      margin-top: 16px;
+      align-self: center;
+    }
+  }
+}

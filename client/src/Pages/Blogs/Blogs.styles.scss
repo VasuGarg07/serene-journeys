@@ -1,0 +1,35 @@
+.blogs-container {
+  box-sizing: border-box;
+  overflow: auto;
+  background-color: #B3C2F2;
+
+  .search-field {
+    width: min(640px, 100%);
+    margin-bottom: 8px;
+    background: #ffffff;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+
+    input {
+      line-height: 1;
+      height: 16px;
+      font-size: 14px;
+    }
+
+    fieldset {
+      border: none;
+    }
+  }
+
+  .cards-container {
+    max-width: 640px;
+    margin: auto;
+  }
+
+}
+
+@media screen and (max-width:499px) {
+  .secondary {
+    display: none;
+  }
+}
