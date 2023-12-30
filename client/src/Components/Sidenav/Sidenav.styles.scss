@@ -2,7 +2,7 @@
 
 .nav-container {
   background: #312450;
-  max-width: 320px;
+  width: 320px;
   color: whitesmoke;
   gap: 0 !important;
   align-items: flex-start !important;
@@ -37,7 +37,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .nav-container .nav-item .item-name {
-    display: none;
+  .nav-container {
+    width: 64px;
+
+    .nav-item .item-name {
+      display: none;
+    }
   }
 }

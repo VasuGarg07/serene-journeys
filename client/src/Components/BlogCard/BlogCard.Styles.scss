@@ -1,4 +1,7 @@
 .blog-card {
+  user-select: none;
+  cursor: default;
+
   .cover-image {
     height: 320px;
     object-fit: cover;
@@ -34,6 +37,11 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  &:hover,
+  &:active {
+    cursor: pointer;
   }
 }
 

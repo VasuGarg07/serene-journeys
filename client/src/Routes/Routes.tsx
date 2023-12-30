@@ -6,6 +6,7 @@ import VerifyToken from "../Pages/Auth/VerifyToken";
 import Login from "../Pages/Auth/Login";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Blogs from "../Pages/Blogs/Blogs";
+import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 
 export const router = createBrowserRouter([
   {
@@ -35,10 +36,14 @@ export const router = createBrowserRouter([
         path: "my-profile",
         element: <MyProfile />,
       },
+      {
+        path: 'blog/:blogId',
+        element: <BlogDetails />,
+      }
     ]
   },
   {
     path: '*',
-    element: <Navigate replace to="/dashboard" />
+    element: <Navigate replace to="/home" />
   }
 ])

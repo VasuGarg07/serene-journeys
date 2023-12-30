@@ -3,6 +3,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import { TransitionProps } from '@mui/material/transitions';
 import Zoom from '@mui/material/Zoom';
+import './DialogProvider.styles.scss'
 
 // Dialog Transition
 const Transition = React.forwardRef(function Transition(

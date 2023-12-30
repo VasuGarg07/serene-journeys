@@ -1,10 +1,10 @@
-import { EditNote, Home, Logout, Person } from '@mui/icons-material';
+import { EditNote, HomeRounded, Logout, PersonOutline } from '@mui/icons-material';
 import { Divider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import LogoIcon from '../../Assets/icon.png';
+import ConfirmLogout from '../ConfirmLogout/ConfirmLogout';
 import { useDialog } from '../DialogProvider/DialogProvider';
 import './Sidenav.styles.scss';
-import ConfirmLogout from '../ConfirmLogout/ConfirmLogout';
 
 const Sidenav = () => {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const Sidenav = () => {
 
       <div className='nav-item flex-centered-container-vr padding full-width'
         onClick={() => { navigate('/home') }}>
-        <Home className="item-icon" />
+        <HomeRounded className="item-icon" />
         <div className='item-name'>Home</div>
       </div>
 
@@ -39,7 +39,7 @@ const Sidenav = () => {
 
       <div className='nav-item flex-centered-container-vr padding full-width'
         onClick={() => { navigate('/home/my-profile') }}>
-        <Person className="item-icon" />
+        <PersonOutline className="item-icon" />
         <div className='item-name'>My Profile</div>
       </div>
 

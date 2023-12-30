@@ -22,6 +22,7 @@ export const userLoginSuccess = "User Logged in Successfully";
 export const miscErr = "Something went wrong";
 export const BlogCreated = "Your Blog has been published";
 export const InvalidImageUrl = 'Image URL must end with .jpg, .jpeg, or .png';
+export const BrowserNotSupported = 'Sorry! This feature is not supported on your browser.';
 
 export const COVER_IMAGES = [
   'https://images.unsplash.com/photo-1543310465-f4d3ca5a2a25?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',

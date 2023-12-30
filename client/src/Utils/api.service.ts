@@ -20,9 +20,19 @@ export const resendToken = (token: string) => {
 }
 
 // BLOG POST APIS
-export const getAll = () => {
-  return http.get<BlogResponse[]>(urls.blogListUrl);
-}
+// Fetcher Function
+export const fetcher = async (url: string) => {
+  try {
+    const response = await http.get(url);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// export const getAll = () => {
+//   return http.get<BlogResponse[]>(urls.blogListUrl);
+// }
 
 export const getFeatured = () => {
   return http.get<BlogResponse[]>(urls.featuredListUrl);

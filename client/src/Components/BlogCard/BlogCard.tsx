@@ -3,6 +3,7 @@ import { Avatar, Chip, Skeleton, Typography } from "@mui/material";
 import { BlogResponse } from "../../Utils/interfaces";
 import { formatDate, userAvatar } from "../../Utils/utilities";
 import './BlogCard.Styles.scss';
+import { useNavigate } from "react-router-dom";
 
 
 // Basic Card Styling
@@ -42,8 +43,10 @@ export const BlogCardSkeleton = () => {
 // Card with data
 export const BlogCard = ({ post }: { post: BlogResponse }) => {
 
+  const navigate = useNavigate()
+
   return (
-    <StyledBlogCard className="blog-card">
+    <StyledBlogCard className="blog-card" onClick={() => navigate(`blog/${post._id}`)}>
 
       <div className="flex-centered-container-vr fullwidth">
         <Avatar {...userAvatar(post.user)} />

@@ -1,0 +1,95 @@
+.error-container {
+  background-color: #B3C2F2;
+  justify-content: center;
+
+  img {
+    width: 80%;
+    max-width: 600px;
+  }
+}
+
+.blog-container {
+  box-sizing: border-box;
+  background-color: #FAFAFF;
+  overflow: auto;
+
+  .cover-image {
+    height: 20rem;
+    position: relative;
+
+    img {
+      object-fit: cover;
+    }
+
+    .header {
+      background-color: #02061799;
+      position: absolute;
+      top: 0;
+      padding: 32px;
+      flex-direction: column-reverse;
+
+      .title {
+        color: white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-shadow: 4px 4px 4px #02061799;
+      }
+
+      .tags {
+        margin-top: 8px;
+        gap: 8px;
+
+        .tag {
+          color: rgb(255 255 255 / 75%);
+          min-width: 64px;
+          box-shadow: 0px 2px 4px #02061799;
+        }
+      }
+    }
+  }
+
+  .blog-details {
+    padding: 32px;
+
+    .actions {
+      color: #616161;
+      justify-content: space-evenly;
+
+      button {
+        padding: 4px 8px;
+
+        .label {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .blog-container {
+
+    .cover-image .header,
+    .blog-details {
+      padding: 24px;
+
+      .title {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:599px) {
+  .blog-container .blog-details .actions .label {
+    display: none;
+  }
+}
+
+@media screen and (max-width:499px) {
+  .blog-container {
+    .cover-image .header .title {
+      font-size: 1.1rem;
+    }
+  }
+}
