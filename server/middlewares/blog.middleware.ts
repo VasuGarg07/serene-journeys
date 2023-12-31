@@ -1,6 +1,7 @@
 import { ValidationError } from "yup";
 import { blogValidationSchema } from "../utils/utilities";
 import { NextFunction, Request, Response } from "express";
+import { Bookmarks } from "../models/bookmark.model";
 
 export const validateBlogData = async (req: Request, res: Response, next: NextFunction) => {
   try {

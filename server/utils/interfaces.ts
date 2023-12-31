@@ -19,6 +19,11 @@ export interface IBlog {
   timeOfPost: Date
 }
 
+export interface IBookmark {
+  user: Types.ObjectId;
+  blog: Types.ObjectId;
+}
+
 // Request Interface
 export interface LoginResponse {
   _id: Types.ObjectId,

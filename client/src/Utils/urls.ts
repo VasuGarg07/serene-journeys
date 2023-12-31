@@ -10,6 +10,7 @@ export namespace urls {
   export const featuredListUrl = `${serverUrl}blog/featured/`;
   export const singleBlogUrl = `${serverUrl}blog/`;
   export const newBlogUrl = `${serverUrl}blog/new/`;
+  export const bookmarkBlog = `${serverUrl}blog/bookmark/`;
 
   export const updateProfileUrl = `${serverUrl}profile/update-profile/`;
 }

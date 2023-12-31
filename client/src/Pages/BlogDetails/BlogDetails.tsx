@@ -1,4 +1,4 @@
-import { BookmarkBorder, CommentOutlined, FavoriteBorder, Share } from '@mui/icons-material';
+import { BookmarkBorder, CommentOutlined, DeleteOutline, EditOutlined, FavoriteBorder, Share } from '@mui/icons-material';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
@@ -8,16 +8,29 @@ import useSWR from 'swr';
 import Loading from '../../Assets/Lotties/loading.json';
 import NotFound from '../../Assets/notfound.png';
 import LottieAnimation from '../../Components/Lottie/Lottie';
-import { fetcher } from '../../Utils/api.service';
+import { bookmarkBlog, fetcher } from '../../Utils/api.service';
 import { BlogResponse } from '../../Utils/interfaces';
 import { urls } from '../../Utils/urls';
-import { formatDate, stringToColor, userAvatar } from '../../Utils/utilities';
+import { formatDate, showNotification, stringToColor, userAvatar } from '../../Utils/utilities';
 import './BlogDetails.styles.scss';
+import { StorageHelper } from '../../Utils/storage.helper';
+import { SEVERITY } from '../../Utils/enums';
 
 const BlogDetails = () => {
 
   const { blogId } = useParams();
   const { data, error, isLoading } = useSWR<BlogResponse>(`${urls.singleBlogUrl}${blogId}`, fetcher);
+
+  const userId = StorageHelper.userProfile!._id;
+
+  const handleBookmark = async () => {
+    try {
+      const resp = await bookmarkBlog(userId, data!._id);
+      showNotification(SEVERITY.Success, resp.data.message);
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   if (error) {
     return (
@@ -72,7 +85,7 @@ const BlogDetails = () => {
             <span className='label'>Comment</span>
           </Button>
           <Button variant="text" color='inherit' size='small'
-            startIcon={<BookmarkBorder />}>
+            startIcon={<BookmarkBorder />} onClick={handleBookmark}>
             <span className='label'>Bookmark</span>
           </Button>
           <Button startIcon={<Share />} variant="text" color='inherit' size='small'>

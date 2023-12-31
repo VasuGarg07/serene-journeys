@@ -30,20 +30,16 @@ export const fetcher = async (url: string) => {
   }
 };
 
-// export const getAll = () => {
-//   return http.get<BlogResponse[]>(urls.blogListUrl);
-// }
-
 export const getFeatured = () => {
   return http.get<BlogResponse[]>(urls.featuredListUrl);
 }
 
-export const getSingleBlog = (id: string) => {
-  return http.get<BlogResponse>(`${urls.singleBlogUrl}${id}/`);
-}
-
 export const postBlog = (data: BlogRequest) => {
   return http.post(urls.newBlogUrl, data)
+}
+
+export const bookmarkBlog = (userId: string, blogId: string) => {
+  return http.post(urls.bookmarkBlog, { userId, blogId })
 }
 
 // Profile APIS

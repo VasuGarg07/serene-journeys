@@ -12,8 +12,7 @@ const blogSchema = new Schema<IBlog>({
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true
-  },
-
-})
+  }
+});
 
 export const Blog = mongoose.model<IBlog>("Blog", blogSchema);

@@ -1,16 +1,10 @@
 
 
 import { Blog } from "../models/blog.model";
-import { imageLinkRegex } from "../utils/constants";
 import { IBlog } from "../utils/interfaces";
-import { BlogCreationFailure, InvalidImageUrl, PostDeleted, PostNotFound } from "../utils/strings";
+import { BlogCreationFailure, PostDeleted, PostNotFound } from "../utils/strings";
 
 export const createBlog = async ({ title, user, imageLink, description, categories, isFeaturedPost = false }: IBlog) => {
-
-  // if (!imageLinkRegex.test(imageLink)) {
-  //   console.log(imageLinkRegex.test(imageLink))
-  //   throw InvalidImageUrl
-  // }
 
   try {
     const blog = await Blog.create({ title, user, imageLink, description, categories, isFeaturedPost });

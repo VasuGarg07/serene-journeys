@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { createBlog, deletePost, fetchAllBlogs, fetchBlogById, fetchBlogsByCategory, fetchFeaturedBlogs, updatePost } from "../services/blog.service";
 import { Blog } from "../models/blog.model";
+import { getBookmarkedBlogs, toggleBookmark } from "../services/bookmark.service";
 
 export const createNewBlog = async (req: Request, res: Response) => {
   try {
@@ -65,6 +66,26 @@ export const updateBlog = async (req: Request, res: Response) => {
     const data = req.body
     const blog = await updatePost(id, data);
     res.status(200).json(blog);
+  } catch (error) {
+    res.status(400).json({ error });
+  }
+}
+
+export const bookmarkBlog = async (req: Request, res: Response) => {
+  try {
+    const { userId, blogId } = req.body;
+    const response = await toggleBookmark(userId, blogId);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(400).json({ error });
+  }
+}
+
+export const getBookmarks = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    const blogs = await getBookmarkedBlogs(id);
+    res.status(200).json({ blogs });
   } catch (error) {
     res.status(400).json({ error });
   }
