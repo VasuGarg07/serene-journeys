@@ -1,11 +1,13 @@
-import { BookmarkBorder, CommentOutlined, FavoriteBorder, PlayCircleOutline, Share } from '@mui/icons-material';
+import { BookmarkBorder, CommentOutlined, FavoriteBorder, Share } from '@mui/icons-material';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import { useParams } from 'react-router-dom';
 import useSWR from 'swr';
+import Loading from '../../Assets/Lotties/loading.json';
 import NotFound from '../../Assets/notfound.png';
+import LottieAnimation from '../../Components/Lottie/Lottie';
 import { fetcher } from '../../Utils/api.service';
 import { BlogResponse } from '../../Utils/interfaces';
 import { urls } from '../../Utils/urls';
@@ -17,12 +19,20 @@ const BlogDetails = () => {
   const { blogId } = useParams();
   const { data, error, isLoading } = useSWR<BlogResponse>(`${urls.singleBlogUrl}${blogId}`, fetcher);
 
-
-  if (!data || error) {
+  if (error) {
     return (
       <div className='error-container padding full-vp-height full-width flex-centered-column'>
         <img src={NotFound} alt="" />
         <Button variant='contained' disableElevation sx={{ background: '#6880e4', borderRadius: "1rem" }}>Blog Not Found</Button>
+      </div>
+    )
+  }
+
+  if (isLoading || !data) {
+    return (
+      <div className='error-container padding full-vp-height full-width flex-centered-column'>
+        <LottieAnimation lottie={Loading} />
+        <Typography variant='h6'>Loading the post...</Typography>
       </div>
     )
   }
@@ -32,14 +42,15 @@ const BlogDetails = () => {
       <div className='cover-image full-width'>
         <img src={data.imageLink} alt={data.title} className='full-width full-height' />
 
-        <div className='header full-width full-height display-flex'>
-          <div className='tags flex-centered-container-vr'>
-            {data.categories.map((val: string) => (
-              <Chip key={val} label={val} size='small' className='tag' sx={{ background: stringToColor(val) }} />
-            ))}
+        <div className='veil full-width full-height'>
+          <div className='header display-flex full-width full-height'>
+            <div className='tags flex-centered-container-vr'>
+              {data.categories.map((val: string) => (
+                <Chip key={val} label={val} size='small' className='tag' sx={{ background: stringToColor(val) }} />
+              ))}
+            </div>
+            <div className='title'>{data.title}</div>
           </div>
-
-          <div className='title'>{data.title}</div>
         </div>
       </div>
 
@@ -64,17 +75,20 @@ const BlogDetails = () => {
             startIcon={<BookmarkBorder />}>
             <span className='label'>Bookmark</span>
           </Button>
-          <Button variant="text" color='inherit' size='small'
-            startIcon={<PlayCircleOutline />}>
-            <span className='label'>Listen</span>
-          </Button>
           <Button startIcon={<Share />} variant="text" color='inherit' size='small'>
             <span className='label'>Share</span>
           </Button>
         </div>
 
-        <Typography display="inline-block" variant='body2' className='text-justify'>{data.description}</Typography>
-      </div>
+        <div>
+          {data.description.split('\n\n').map((para, index) => (
+            <div key={index}>
+              <Typography display="inline-block" variant='body2' className='text-justify'>{para}</Typography>
+              <br /><br />
+            </div>
+          ))}
+        </div>
+      </div >
     </div>
   )
 }

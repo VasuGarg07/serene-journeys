@@ -15,12 +15,13 @@ import './CreateBlog.styles.scss';
 import { useDialog } from '../../Components/DialogProvider/DialogProvider';
 import CoverImage from '../../Components/CoverImage/CoverImage';
 import { StorageHelper } from '../../Utils/storage.helper';
+import { useNavigate } from 'react-router-dom';
 
 const CreateBlog = () => {
 
   const { formImageLink, setFormImageLink, openDialog } = useDialog();
   const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm<BlogForm>({ resolver: yupResolver(blogValidationSchema) });
-
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>('');
@@ -69,8 +70,8 @@ const CreateBlog = () => {
     try {
       const _ = await postBlog(request);
       showNotification(SEVERITY.Success, BlogCreated);
-      reset();
       setFormImageLink('');
+      navigate('/home');
 
     } catch (error: any) {
 

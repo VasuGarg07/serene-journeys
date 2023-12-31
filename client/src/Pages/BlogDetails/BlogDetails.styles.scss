@@ -10,7 +10,7 @@
 
 .blog-container {
   box-sizing: border-box;
-  background-color: #FAFAFF;
+  background-color: #F1F9FE;
   overflow: auto;
 
   .cover-image {
@@ -21,12 +21,17 @@
       object-fit: cover;
     }
 
-    .header {
+    .veil {
       background-color: #02061799;
       position: absolute;
       top: 0;
+    }
+
+    .header {
       padding: 32px;
       flex-direction: column-reverse;
+      max-width: 800px;
+      margin: auto;
 
       .title {
         color: white;
@@ -50,6 +55,7 @@
 
   .blog-details {
     padding: 32px;
+    max-width: 800px;
 
     .actions {
       color: #616161;
@@ -57,6 +63,7 @@
 
       button {
         padding: 4px 8px;
+        min-width: 40px;
 
         .label {
           text-transform: uppercase;
